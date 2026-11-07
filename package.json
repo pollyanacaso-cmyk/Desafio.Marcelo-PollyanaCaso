@@ -1,0 +1,15 @@
+{
+  "name": "jwt-auth-app",
+  "version": "1.0.0",
+  "description": "Login com access_token JWT: API em Express e interface web",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2"
+  }
+}
