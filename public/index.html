@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acesso com token</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="layout">
+
+    <aside class="anatomy" aria-label="Anatomia do token">
+      <h1>Seu acesso vira um token com três partes.</h1>
+      <p class="lead">Entre para ver o seu. Cada parte do JWT aparece abaixo, separada por ponto.</p>
+
+      <dl class="parts">
+        <div class="part part-head">
+          <dt>Cabeçalho</dt>
+          <dd id="partHead">Algoritmo usado na assinatura</dd>
+        </div>
+        <div class="part part-body">
+          <dt>Dados</dt>
+          <dd id="partBody">Quem é você e quando o token expira</dd>
+        </div>
+        <div class="part part-sign">
+          <dt>Assinatura</dt>
+          <dd id="partSign">Prova de que o servidor emitiu este token</dd>
+        </div>
+      </dl>
+    </aside>
+
+    <main class="panel">
+
+      <section id="loginView">
+        <h2>Entrar</h2>
+        <form id="loginForm" novalidate>
+          <label for="email">E-mail</label>
+          <input id="email" type="email" autocomplete="username" value="demo@exemplo.com" required>
+
+          <label for="password">Senha</label>
+          <input id="password" type="password" autocomplete="current-password" required>
+
+          <p id="formError" class="error" role="alert" hidden></p>
+
+          <button type="submit" id="submitBtn">Entrar</button>
+        </form>
+        <p class="hint">Conta de teste: demo@exemplo.com / senha123</p>
+      </section>
+
+      <section id="sessionView" hidden>
+        <h2>Sessão ativa</h2>
+        <p class="status">Token recebido. Ele expira em <strong id="countdown">--:--</strong>.</p>
+
+        <label for="tokenField">access_token</label>
+        <textarea id="tokenField" readonly rows="4"></textarea>
+
+        <div class="actions">
+          <button type="button" id="copyBtn">Copiar token</button>
+          <button type="button" id="meBtn" class="secondary">Chamar /api/auth/me</button>
+        </div>
+
+        <pre id="meOutput" class="output" hidden></pre>
+
+        <button type="button" id="logoutBtn" class="link">Sair</button>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
